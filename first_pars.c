@@ -4,7 +4,7 @@
 #include <string.h>
 #include <cjson/cJSON.h>
 char* first_pars(const char* filename){ // Функция для первичного парсинга файла
-    FILE* f = fopen("data.json", "r"); // Задаем имя файла f открытием data только для чтения
+    FILE* f = fopen(filename, "r"); // Задаем имя файла f открытием data только для чтения
     if (!f) return NULL; // Если файл по какой-либо причине не открылся, возвращаем null
     fseek(f, 0, SEEK_END); // Перемещаем курсор в конец файла
     long size = ftell(f); // размер файла = позиция курсора
@@ -14,7 +14,7 @@ char* first_pars(const char* filename){ // Функция для первичн�
         fclose(f);
         return NULL;
     }
-    if(fread(data, 1, size, f) != size);{// Чтение файла, запись в data, если прочитал меньше, то файл оборвался
+    if(fread(data, 1, size, f) != size){// Чтение файла, запись в data, если прочитал меньше, то файл оборвался
         fclose(f);
         free(data);
         return NULL;
