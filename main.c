@@ -6,6 +6,7 @@
 #include "rastvorenie.h"
 #include "razbavlenie.h"
 #include "first_pars.h"
+#include "razbavlenie_baza.h"
 int main() {
   char *data = first_pars(); // Выгрузка базы данных в память 
   if(!data){
@@ -34,22 +35,21 @@ int main() {
     printf("Реактив найден.\n");
     b = 2;
   }
-  
-
-  
-  
-
-
   printf("Выберите желаемый расчет.\n");
   printf("1 - Растворение твердого вещества в воде в мерной колбе.\n");
-  printf("2 - Разбавлене жидкого реагента.\n");
+  printf("2 - Разбавлене жидкого реактива.\n");
   short a;  // Выбор режима работы проги, 1 или 2
   scanf("%hd", &a);
   if (a == 1 && b == 1) {
     rastvorenie();
-  } else if (a == 2 && b == 1) {
+  } 
+  else if (a == 2 && b == 1) {
     razbavlenie();
-  } else
+  } 
+  else if (a == 2 && b == 2){
+    razb_baza(comp);
+  }
+  else
     printf("Некорректный выбор режима программы.");
   return 0;
 }
