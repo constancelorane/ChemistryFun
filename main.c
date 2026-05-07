@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <cjson/cJSON.h>
+#include <stdlib.h>
 
 #include "rastvorenie.h"
 #include "razbavlenie.h"
 #include "first_pars.h"
 int main() {
-  char *data = first_pars("data.json"); // Выгрузка базы данных в память 
+  char *data = first_pars(); // Выгрузка базы данных в память 
   if(!data){
     printf("Ошибка чтения файла");
     return 1;
@@ -22,12 +23,17 @@ int main() {
     free(data);
     return 1;
   }
+  short b = 0; // Проверка есть ли реактив для потом
   cJSON *comp = cJSON_GetObjectItem(root, name);  // Поиск нужного реактива по древу
   if(!comp){
     printf("Реактива нет в базе данных.\n");
     printf("Необхожимо ввести некоторые данные вручную.\n");
+    b = 1; // Ввод ручками
   }
-  else printf("Реактив найден.\n");
+  else{
+    printf("Реактив найден.\n");
+    b = 2;
+  }
   
 
   
@@ -39,9 +45,9 @@ int main() {
   printf("2 - Разбавлене жидкого реагента.\n");
   short a;  // Выбор режима работы проги, 1 или 2
   scanf("%hd", &a);
-  if (a == 1) {
+  if (a == 1 && b == 1) {
     rastvorenie();
-  } else if (a == 2) {
+  } else if (a == 2 && b == 1) {
     razbavlenie();
   } else
     printf("Некорректный выбор режима программы.");

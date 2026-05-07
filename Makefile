@@ -1,24 +1,24 @@
 CFLAGS = -Wall -Wextra
 
-SRC = main.c razbavlenie.c rastvorenie.c
+SRC = main.c razbavlenie.c rastvorenie.c first_pars.c
 
 # Linux
 CC = gcc
-OBJ = main.o razbavlenie.o rastvorenie.o
+OBJ = main.o razbavlenie.o rastvorenie.o first_pars.o
 TARGET = ChemistryFun
 
 $(TARGET): $(OBJ)
-	$(CC) $(OBJ) -o $(TARGET)
+	$(CC) $(OBJ) -o $(TARGET) -lcjson
 
 # Windows
 CC_WIN = x86_64-w64-mingw32-gcc
-OBJ_WIN = main_win.o razbavlenie_win.o rastvorenie_win.o
+OBJ_WIN = main_win.o razbavlenie_win.o rastvorenie_win.o first_pars.o
 TARGET_WIN = ChemistryFun.exe
 
 win: $(TARGET_WIN)
 
 $(TARGET_WIN): $(OBJ_WIN)
-	$(CC_WIN) $(OBJ_WIN) -o $(TARGET_WIN)
+	$(CC_WIN) $(OBJ_WIN) -o $(TARGET_WIN) -lcjson
 
 # правила сборки
 %.o: %.c
