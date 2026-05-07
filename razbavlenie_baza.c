@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <cjson/cJSON.h>
 int razb_baza(cJSON *comp){
-    printf("Введите необходимый объем реактива.");
+    printf("Введите необходимый объем реактива.\n");
     double v = 0;
     scanf("%lf", &v);
-    printf("Введите начальную концентрацию реактива.");
+    printf("Введите начальную концентрацию реактива.\n");
     double c1 = 0;
     scanf("%lf", &c1);
-    printf("Введите необходимую концентрацию реактива.");
+    printf("Введите необходимую концентрацию реактива.\n");
     double c2 = 0;
     scanf("%lf", &c2);
     cJSON *arr = cJSON_GetObjectItem(comp, "data"); // Выбор определенного реактива в базе данных
