@@ -7,6 +7,7 @@
 #include "razbavlenie.h"
 #include "first_pars.h"
 #include "razbavlenie_baza.h"
+#include "rastvorenie_baza.h"
 int main() {
   char *data = first_pars(); // Выгрузка базы данных в память 
   if(!data){
@@ -48,6 +49,9 @@ int main() {
   } 
   else if (a == 2 && b == 2){
     razb_baza(comp);
+  }
+  else if (a == 1 && b == 2){
+    rast_baza(comp);
   }
   else
     printf("Некорректный выбор режима программы.");
