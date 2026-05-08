@@ -26,7 +26,7 @@ int main() {
     return 1;
   }
   short b = 0; // Проверка есть ли реактив для потом
-  cJSON *comp = cJSON_GetObjectItem(root, name);  // Поиск нужного реактива по древу
+  cJSON *comp = cJSON_GetObjectItem(root, name); // Поиск нужного реактива по древу
   if(!comp){
     printf("Реактива нет в базе данных.\n");
     printf("Необхожимо ввести некоторые данные вручную.\n");
