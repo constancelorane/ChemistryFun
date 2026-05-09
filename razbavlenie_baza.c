@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <cjson/cJSON.h>
+#include "cJSON.h"
 int razb_baza(cJSON *comp){
     printf("Введите необходимый объем реактива.\n");
     double v = 0;

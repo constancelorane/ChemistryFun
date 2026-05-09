@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <cjson/cJSON.h>
+#include "cJSON.h"
 /*Подробное описание кода смотри в фале razbavlenie_baza*/ 
 int rast_baza(cJSON *comp){
     printf("Введите необходимый объем реактива.\n");

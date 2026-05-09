@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <cjson/cJSON.h>
+#include "cJSON.h"
 char *first_pars(){ // Функция для первичного парсинга файла
     FILE *f = fopen("data.json", "r"); // Задаем имя файла f открытием data только для чтения
     if (!f) return NULL; // Если файл по какой-либо причине не открылся, возвращаем null

@@ -4,21 +4,21 @@ SRC = main.c razbavlenie.c rastvorenie.c first_pars.c
 
 # Linux
 CC = gcc
-OBJ = main.o razbavlenie.o rastvorenie.o first_pars.o razbavlenie_baza.o rastvorenie_baza.o
+OBJ = main.o razbavlenie.o rastvorenie.o first_pars.o razbavlenie_baza.o rastvorenie_baza.o cJSON.o
 TARGET = ChemistryFun
 
 $(TARGET): $(OBJ)
-	$(CC) $(OBJ) -o $(TARGET) -lcjson
+	$(CC) $(OBJ) -o $(TARGET) 
 
 # Windows
 CC_WIN = x86_64-w64-mingw32-gcc
-OBJ_WIN = main_win.o razbavlenie_win.o rastvorenie_win.o first_pars_win.o razbavlenie_baza_win.o rastvorenie_baza_win.o
+OBJ_WIN = main_win.o razbavlenie_win.o rastvorenie_win.o first_pars_win.o razbavlenie_baza_win.o rastvorenie_baza_win.o cJSON_win.o
 TARGET_WIN = ChemistryFun.exe
 
 win: $(TARGET_WIN)
 
 $(TARGET_WIN): $(OBJ_WIN)
-	$(CC_WIN) $(OBJ_WIN) -o $(TARGET_WIN) -lcjson
+	$(CC_WIN) $(OBJ_WIN) -o $(TARGET_WIN) 
 
 # правила сборки
 %.o: %.c
